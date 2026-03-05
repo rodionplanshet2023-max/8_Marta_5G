@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-    <title>🔥 Бьюти-квиз + Clash Royale к 8 марта</title>
+    <title>🔥 Бьюти-квиз + Clash Royale + Мега сложные</title>
     <!-- Библиотека конфетти -->
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1"></script>
     <style>
@@ -21,7 +21,7 @@
             align-items: center;
             padding: 10px;
         }
-        /* СВЕТЛАЯ ТЕМА (по умолчанию) */
+        /* СВЕТЛАЯ ТЕМА */
         body.light-theme {
             background: linear-gradient(145deg, #2d1b2b 0%, #1a1a2e 100%);
         }
@@ -29,32 +29,32 @@
             background: rgba(255, 240, 245, 0.95);
             border: 2px solid #ffb6c1;
         }
-        body.light-theme .splash-screen h1 { color: #ff1493; text-shadow: 0 8px 20px #ff69b4; }
+        body.light-theme .splash-screen h1 { color: #ff1493; }
         body.light-theme .splash-screen p { color: #9400d3; }
-        body.light-theme .splash-screen button { background: #ff1493; box-shadow: 0 10px 0 #8b008b, 0 10px 25px #ff69b4; }
+        body.light-theme .splash-screen button { background: #ff1493; }
         body.light-theme .teams-panel { background: #ffe4e1; }
         body.light-theme .team-input label { color: #c71585; }
         body.light-theme .team-input input { border: 2px solid #ff69b4; color: #4b0082; }
-        body.light-theme .leaderboard-btn { background: #f0e6ff; border: 3px solid #da70d6; color: #8a2be2; box-shadow: 0 5px 0 #ba55d3; }
+        body.light-theme .leaderboard-btn { background: #f0e6ff; border: 3px solid #da70d6; color: #8a2be2; }
         body.light-theme .quiz-main { background: #fff0f5; }
-        body.light-theme .theme-btn { background: #ffe4e1; border: 3px solid #db7093; color: #b0306a; box-shadow: 0 6px 0 #b34e7a; }
+        body.light-theme .theme-btn { background: #ffe4e1; border: 3px solid #db7093; color: #b0306a; }
         body.light-theme .theme-btn.active { background: #db7093; color: white; }
-        body.light-theme .question-card { background: white; border: 4px solid #ffb6c1; color: #8b4513; box-shadow: 0 8px 0 #dda0dd; }
-        body.light-theme .question-window { background: #ffe4f0; border: 3px solid white; }
+        body.light-theme .question-card { background: white; border: 4px solid #ffb6c1; color: #8b4513; }
+        body.light-theme .question-window { background: #ffe4f0; }
         body.light-theme .q-text { color: #4b0082; }
-        body.light-theme .q-image { background: #fadadd; border: 2px dashed #ff69b4; color: #c71585; }
         body.light-theme .option-btn { background: white; border: 3px solid #ff99cc; color: #4b0082; }
-        body.light-theme .option-btn.selected { background: #dda0dd; color: white; border-color: #ba55d3; }
-        body.light-theme .give-score-btn { background: #98fb98; color: #006400; border-bottom: 6px solid #2e8b57; }
-        body.light-theme .give-score-btn.penalty { background: #ffb6c1; color: #8b0000; border-bottom: 6px solid #8b0000; }
+        body.light-theme .option-btn.selected { background: #dda0dd; color: white; }
+        body.light-theme .give-score-btn { background: #98fb98; color: #006400; }
+        body.light-theme .penalty-btn { background: #ffb6c1; color: #8b0000; }
         body.light-theme .cancel-question { background: #d3d3d3; }
-        body.light-theme .leaderboard-overlay { background: #faf0e6; border: 4px solid #ffb6c1; }
+        body.light-theme .leaderboard-overlay { background: #faf0e6; }
         body.light-theme .leaderboard-row { background: white; }
         body.light-theme .leaderboard-row span:first-child { color: #c71585; }
         body.light-theme .leaderboard-row span:last-child { color: #228b22; }
-        body.light-theme .close-leaderboard { background: #ffb6c1; color: #4b0082; }
-        body.light-theme .compliment-box { background: #fff0f5; border: 2px solid #ff69b4; color: #c71585; }
         body.light-theme .theme-toggle { background: #ffe4e1; color: #b0306a; border: 2px solid #db7093; }
+        body.light-theme .cat-button { background: #ffd700; color: #8b4513; }
+        body.light-theme .fate-button { background: #9370db; color: white; }
+        body.light-theme .reset-button { background: #ff6b6b; color: white; }
 
         /* ТЁМНАЯ ТЕМА */
         body.dark-theme {
@@ -64,32 +64,32 @@
             background: rgba(30, 20, 30, 0.95);
             border: 2px solid #9b4d6e;
         }
-        body.dark-theme .splash-screen h1 { color: #ff69b4; text-shadow: 0 8px 20px #9400d3; }
+        body.dark-theme .splash-screen h1 { color: #ff69b4; }
         body.dark-theme .splash-screen p { color: #b180c0; }
-        body.dark-theme .splash-screen button { background: #9b4d6e; box-shadow: 0 10px 0 #4a2a3a, 0 10px 25px #6b3b52; }
+        body.dark-theme .splash-screen button { background: #9b4d6e; }
         body.dark-theme .teams-panel { background: #2a1f2a; }
         body.dark-theme .team-input label { color: #ff99cc; }
         body.dark-theme .team-input input { background: #3a2a3a; border: 2px solid #9b4d6e; color: #ffb6c1; }
-        body.dark-theme .leaderboard-btn { background: #3a2a3a; border: 3px solid #9b4d6e; color: #ff99cc; box-shadow: 0 5px 0 #4a2a4a; }
+        body.dark-theme .leaderboard-btn { background: #3a2a3a; border: 3px solid #9b4d6e; color: #ff99cc; }
         body.dark-theme .quiz-main { background: #2a1f2a; }
-        body.dark-theme .theme-btn { background: #3a2a3a; border: 3px solid #9b4d6e; color: #ff99cc; box-shadow: 0 6px 0 #4a2a4a; }
+        body.dark-theme .theme-btn { background: #3a2a3a; border: 3px solid #9b4d6e; color: #ff99cc; }
         body.dark-theme .theme-btn.active { background: #9b4d6e; color: white; }
-        body.dark-theme .question-card { background: #3a2a3a; border: 4px solid #9b4d6e; color: #ffb6c1; box-shadow: 0 8px 0 #4a2a4a; }
-        body.dark-theme .question-window { background: #2a1f2a; border: 3px solid #9b4d6e; }
+        body.dark-theme .question-card { background: #3a2a3a; border: 4px solid #9b4d6e; color: #ffb6c1; }
+        body.dark-theme .question-window { background: #2a1f2a; }
         body.dark-theme .q-text { color: #ff99cc; }
-        body.dark-theme .q-image { background: #3a2a3a; border: 2px dashed #9b4d6e; color: #ffb6c1; }
         body.dark-theme .option-btn { background: #3a2a3a; border: 3px solid #9b4d6e; color: #ffb6c1; }
         body.dark-theme .option-btn.selected { background: #9b4d6e; color: white; }
-        body.dark-theme .give-score-btn { background: #2a5a2a; color: #98fb98; border-bottom: 6px solid #1a4a1a; }
-        body.dark-theme .give-score-btn.penalty { background: #6b3a3a; color: #ffb6c1; border-bottom: 6px solid #8b3a3a; }
+        body.dark-theme .give-score-btn { background: #2a5a2a; color: #98fb98; }
+        body.dark-theme .penalty-btn { background: #6b3a3a; color: #ffb6c1; }
         body.dark-theme .cancel-question { background: #4a3a4a; color: #ffb6c1; }
-        body.dark-theme .leaderboard-overlay { background: #2a1f2a; border: 4px solid #9b4d6e; }
+        body.dark-theme .leaderboard-overlay { background: #2a1f2a; }
         body.dark-theme .leaderboard-row { background: #3a2a3a; }
         body.dark-theme .leaderboard-row span:first-child { color: #ff99cc; }
         body.dark-theme .leaderboard-row span:last-child { color: #98fb98; }
-        body.dark-theme .close-leaderboard { background: #9b4d6e; color: white; }
-        body.dark-theme .compliment-box { background: #3a2a3a; border: 2px solid #9b4d6e; color: #ffb6c1; }
         body.dark-theme .theme-toggle { background: #3a2a3a; color: #ff99cc; border: 2px solid #9b4d6e; }
+        body.dark-theme .cat-button { background: #b8860b; color: #ffd700; }
+        body.dark-theme .fate-button { background: #6a4e9b; color: white; }
+        body.dark-theme .reset-button { background: #8b3a3a; color: white; }
 
         .app-container {
             max-width: 1200px;
@@ -115,6 +115,30 @@
             cursor: pointer;
             z-index: 1000;
             box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+        /* Кнопки экшн */
+        .action-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            margin: 15px 0;
+        }
+        .cat-button, .fate-button, .reset-button {
+            border: none;
+            border-radius: 50px;
+            padding: 12px 20px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.07s;
+            box-shadow: 0 5px 0 rgba(0,0,0,0.2);
+            flex: 1;
+            min-width: 120px;
+        }
+        .cat-button:active, .fate-button:active, .reset-button:active {
+            transform: translateY(5px);
+            box-shadow: none;
         }
         .splash-screen {
             display: flex;
@@ -352,16 +376,14 @@
         .penalty-buttons {
             display: flex;
             gap: 10px;
-            margin-top: 5px;
+            margin: 10px 0;
         }
         .penalty-btn {
-            background: #ffb6c1;
             border: none;
             border-radius: 30px;
             padding: 10px;
             font-size: 1rem;
             font-weight: bold;
-            color: #8b0000;
             border-bottom: 4px solid #8b0000;
             cursor: pointer;
             transition: 0.07s;
@@ -413,15 +435,17 @@
             cursor: pointer;
             width: 100%;
         }
-        .compliment-box {
-            margin: 20px 0 10px;
-            padding: 15px;
+        .fate-event {
+            margin: 20px 0;
+            padding: 20px;
             border-radius: 40px;
             text-align: center;
             font-size: 1.3rem;
-            font-weight: 600;
-            animation: fadeIn 0.5s;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            font-weight: bold;
+            animation: bounceIn 0.5s;
+            background: linear-gradient(145deg, #ffd700, #ffa500);
+            color: #4b0082;
+            border: 3px solid white;
         }
         .hidden { display: none; }
         
@@ -434,6 +458,12 @@
             50% { transform: translateY(-5px); } 
             100% { transform: translateY(0); } 
         }
+        @keyframes bounceIn {
+            0% { transform: scale(0.3); opacity: 0; }
+            50% { transform: scale(1.05); opacity: 1; }
+            70% { transform: scale(0.9); }
+            100% { transform: scale(1); }
+        }
         @media (max-width: 380px) {
             .question-card {
                 width: 70px;
@@ -445,24 +475,21 @@
             .team-input {
                 max-width: 100%;
             }
-            .leaderboard-row {
-                font-size: 1rem;
-            }
         }
     </style>
 </head>
 <body class="light-theme">
-    <!-- Переключатель темы (Пункт 8) -->
+    <!-- Переключатель темы -->
     <div class="theme-toggle" id="themeToggle" title="Сменить тему">🌙</div>
 
 <div class="app-container" id="appContainer">
     <!-- ЗАСТАВКА -->
     <div id="splash" class="splash-screen">
         <h1>💄 8 марта + Clash 👑</h1>
-        <p>Бьюти-квиз + эпичные вопросы</p>
+        <p>Мега-бьюти квиз</p>
         <button id="startBtn">Войти в игру →</button>
         <div class="terms">
-            Нажимая на кнопку «Войти в игру», вы автоматически соглашаетесь с <a href="https://github.com/rodionplanshet2023-max/8_Marta_5G/blob/main/README.md" target="_blank">условиями использования</a>
+            Нажимая на кнопку «Войти в игру», вы автоматически соглашаетесь с <a href="https://твоя-ссылка.ru" target="_blank">условиями использования</a>
         </div>
     </div>
 
@@ -486,10 +513,18 @@
             <button class="leaderboard-btn" id="showLeaderboardBtn">🏆 Таблица лидеров</button>
         </div>
 
+        <!-- Кнопки действий -->
+        <div class="action-buttons">
+            <button class="cat-button" id="catButton">🎁 Кот в мешке</button>
+            <button class="fate-button" id="fateButton">🎲 Судьба-злодейка</button>
+            <button class="reset-button" id="resetButton">☠️ Всё пропало</button>
+        </div>
+
         <div class="quiz-main">
             <div class="theme-tabs">
                 <div class="theme-btn active" id="theme1Btn">💄 Бьюти-эксперт</div>
                 <div class="theme-btn" id="theme2Btn">👑 Clash Royale</div>
+                <div class="theme-btn" id="theme3Btn">👸 Богини красоты</div>
             </div>
 
             <div id="questionsGrid" class="questions-grid"></div>
@@ -500,14 +535,14 @@
                 <div class="options" id="optionsContainer"></div>
                 <div class="score-buttons" id="scoreButtons"></div>
                 
-                <!-- Штрафные кнопки (Пункт 15) -->
+                <!-- Штрафные кнопки -->
                 <div class="penalty-buttons" id="penaltyButtons"></div>
                 
                 <button id="cancelQuestionBtn" class="cancel-question">✖ Закрыть вопрос</button>
             </div>
 
-            <!-- Комплимент от бота (Пункт 16) -->
-            <div id="complimentBox" class="compliment-box hidden"></div>
+            <!-- Событие судьбы -->
+            <div id="fateEvent" class="fate-event hidden"></div>
         </div>
 
         <div id="leaderboardPanel" class="leaderboard-overlay hidden">
@@ -519,7 +554,7 @@
 
 <script>
     (function() {
-        // ========== БЬЮТИ-ВОПРОСЫ + CLASH ROYALE ==========
+        // ========== ВСЕ ВОПРОСЫ ==========
         const quizData = {
             theme1: {
                 name: '💄 Бьюти-эксперт',
@@ -664,56 +699,124 @@
                         correct: 1 
                     }
                 ]
+            },
+            theme3: {
+                name: '👸 Богини красоты',
+                questions: [
+                    { 
+                        points: 10, 
+                        text: 'Что такое "бронзер"?', 
+                        image: '<img src="https://avatars.mds.yandex.net/i?id=bb29ba20e07dade570a7f3d27ed57a68e5bf6299-5229226-images-thumbs&n=13" alt="bronzer" style="max-width: 100%; max-height: 250px; border-radius: 15px; object-fit: contain;">',
+                        options: [
+                            'Средство для придания коже загара',
+                            'Крем для бритья',
+                            'База под тени',
+                            'Спрей для блеска'
+                        ], 
+                        correct: 0 
+                    },
+                    { 
+                        points: 20, 
+                        text: 'Чем отличается "хайлайтер" от "шимера"?', 
+                        image: '<img src="https://avatars.mds.yandex.net/i?id=d7477404beb0ba88e53780b5be87d221fff9f863-5478998-images-thumbs&n=13" alt="highlighter" style="max-width: 100%; max-height: 250px; border-radius: 15px; object-fit: contain;">',
+                        options: [
+                            'Хайлайтер жидкий, шимер сухой',
+                            'Хайлайтер даёт влажное сияние, шимер - мерцание',
+                            'Это одно и то же',
+                            'Шимер только для тела'
+                        ], 
+                        correct: 1 
+                    },
+                    { 
+                        points: 30, 
+                        text: 'Что такое "праймер" для ресниц?', 
+                        image: '<img src="https://cdn1.ozone.ru/s3/multimedia-t/6220042181.jpg" alt="primer" style="max-width: 100%; max-height: 250px; border-radius: 15px; object-fit: contain;">',
+                        options: [
+                            'База под тушь для объёма',
+                            'Сыворотка для роста',
+                            'Клей для наращивания',
+                            'Масло для снятия макияжа'
+                        ], 
+                        correct: 0 
+                    },
+                    { 
+                        points: 40, 
+                        text: 'Как правильно наносить "контуринг"?', 
+                        image: '<img src="https://avatars.mds.yandex.net/get-mpic/16396243/2a0000019918511f59e05ce3f7f39565f5cf/orig" alt="contouring" style="max-width: 100%; max-height: 250px; border-radius: 15px; object-fit: contain;">',
+                        options: [
+                            'Тёмное под скулы, светлое на выступающие части',
+                            'Тёмное на всё лицо',
+                            'Только на лоб',
+                            'Круговыми движениями'
+                        ], 
+                        correct: 0 
+                    },
+                    { 
+                        points: 50, 
+                        text: 'Что такое "ламинирование бровей"?', 
+                        image: '<img src="https://avatars.mds.yandex.net/i?id=ceed17abe026a4b8cb458b4d5642cb61_l-4055806-images-thumbs&n=13" alt="laminating" style="max-width: 100%; max-height: 250px; border-radius: 15px; object-fit: contain;">',
+                        options: [
+                            'Химическая завивка + фиксация волосков',
+                            'Покраска хной',
+                            'Наращивание волосков',
+                            'Выщипывание пинцетом'
+                        ], 
+                        correct: 0 
+                    },
+                    { 
+                        points: 50, 
+                        text: 'Чем отличается "BB-крем" от "CC-крема"?', 
+                        image: '<img src="https://avatars.mds.yandex.net/i?id=8d7fbbc7a049600c370d6e800898b492_l-4055751-images-thumbs&n=13" alt="bbcc" style="max-width: 100%; max-height: 250px; border-radius: 15px; object-fit: contain;">',
+                        options: [
+                            'BB - увлажнение, CC - коррекция цвета',
+                            'BB - для тела, CC - для лица',
+                            'Это одно и то же',
+                            'BB - только летом'
+                        ], 
+                        correct: 0 
+                    }
+                ]
             }
         };
 
-        // Состояние игры (очки НЕ сохраняются)
+        // Состояние игры
         let currentTheme = 'theme1';
         let usedQuestions = [];
         let currentQuestion = null;
         let selectedOptionIndex = -1;
         
-        // Очки команд в памяти (без localStorage)
+        // Очки команд
         let team1Score = 0;
         let team2Score = 0;
         let team3Score = 0;
 
-        // Массив комплиментов (Пункт 16)
-        const compliments = [
-            "🌸 Ваша красота сегодня ослепительна!",
-            "💅 У вас самый стильный макияж среди всех команд!",
-            "👑 Вы сегодня королевы вечера!",
-            "✨ Ваша эрудиция сияет ярче бриллиантов!",
-            "🎀 Вы не только умные, но и красивые!",
-            "💋 Ваши ответы бесподобны!",
-            "🌟 Такие знания достойны восхищения!",
-            "🎉 Вы просто взорвали этот раунд!",
-            "💎 Ваша команда — настоящий бриллиант!",
-            "🌺 Вы сегодня само совершенство!"
+        // Массив событий для судьбы
+        const fateEvents = [
+            { text: "🎲 Лидер теряет 30 баллов!", effect: (scores) => { 
+                const max = Math.max(scores.team1, scores.team2, scores.team3);
+                if (scores.team1 === max) scores.team1 -= 30;
+                else if (scores.team2 === max) scores.team2 -= 30;
+                else scores.team3 -= 30;
+            }},
+            { text: "🎁 Все получают +20 баллов!", effect: (scores) => {
+                scores.team1 += 20; scores.team2 += 20; scores.team3 += 20;
+            }},
+            { text: "👑 Команда с наименьшим счётом получает +50!", effect: (scores) => {
+                const min = Math.min(scores.team1, scores.team2, scores.team3);
+                if (scores.team1 === min) scores.team1 += 50;
+                else if (scores.team2 === min) scores.team2 += 50;
+                else scores.team3 += 50;
+            }},
+            { text: "🌀 Баллы перемешаны случайно!", effect: (scores) => {
+                const arr = [scores.team1, scores.team2, scores.team3];
+                arr.sort(() => Math.random() - 0.5);
+                scores.team1 = arr[0]; scores.team2 = arr[1]; scores.team3 = arr[2];
+            }},
+            { text: "💄 Команда Визажистки получает +25 за красоту!", effect: (scores) => { scores.team1 += 25; }},
+            { text: "👑 Команда Клэшеры получает +25 за эпичность!", effect: (scores) => { scores.team3 += 25; }},
         ];
 
-        function getTeamNames() {
-            return {
-                name1: document.getElementById('team1')?.value || 'Команда 1',
-                name2: document.getElementById('team2')?.value || 'Команда 2',
-                name3: document.getElementById('team3')?.value || 'Команда 3',
-            };
-        }
-
-        // Показать случайный комплимент (Пункт 16)
-        function showRandomCompliment() {
-            const complimentBox = document.getElementById('complimentBox');
-            const randomIndex = Math.floor(Math.random() * compliments.length);
-            complimentBox.innerHTML = compliments[randomIndex];
-            complimentBox.classList.remove('hidden');
-            
-            // Автоматически скрыть через 5 секунд
-            setTimeout(() => {
-                complimentBox.classList.add('hidden');
-            }, 5000);
-        }
-
-        // Переключатель темы (Пункт 8)
+        // Переключатель темы
         const themeToggle = document.getElementById('themeToggle');
         themeToggle.addEventListener('click', () => {
             const body = document.body;
@@ -728,7 +831,15 @@
             }
         });
 
-        // Отрисовка сетки вопросов
+        function getTeamNames() {
+            return {
+                name1: document.getElementById('team1')?.value || 'Команда 1',
+                name2: document.getElementById('team2')?.value || 'Команда 2',
+                name3: document.getElementById('team3')?.value || 'Команда 3',
+            };
+        }
+
+        // Отрисовка сетки
         function renderGrid() {
             const grid = document.getElementById('questionsGrid');
             if (!grid) return;
@@ -751,6 +862,7 @@
             });
         }
 
+        // Открыть вопрос
         function openQuestion(theme, questionObj) {
             currentQuestion = { theme, data: questionObj };
             selectedOptionIndex = -1;
@@ -789,7 +901,7 @@
                 optsDiv.appendChild(btn);
             });
 
-            // Основные кнопки для баллов
+            // Кнопки для баллов
             const scoreDiv = document.getElementById('scoreButtons');
             const names = getTeamNames();
             scoreDiv.innerHTML = '';
@@ -806,14 +918,12 @@
                     if (!isCorrect) {
                         alert('❌ Неправильный ответ. Баллы не начислены.');
                     } else {
-                        // 🎺 Фанфары
                         try {
                             const fanfare = new Audio('https://www.soundjay.com/misc/sounds/fanfare-1.mp3');
                             fanfare.volume = 0.5;
                             fanfare.play().catch(e => console.log('Автовоспроизведение заблокировано'));
                         } catch(e) {}
-
-                        // 🎊 Конфетти
+                        
                         if (typeof confetti === 'function') {
                             confetti({
                                 particleCount: 150,
@@ -823,15 +933,11 @@
                             });
                         }
 
-                        // Начисляем баллы
                         if (idx === 0) team1Score += currentQuestion.data.points;
                         else if (idx === 1) team2Score += currentQuestion.data.points;
                         else team3Score += currentQuestion.data.points;
                         
                         alert(`✅ Верно! ${currentQuestion.data.points} баллов команде ${teamName}`);
-                        
-                        // Показываем комплимент после правильного ответа (Пункт 16)
-                        showRandomCompliment();
                     }
                     const key = `${currentTheme}-${currentQuestion.data.points}-${currentQuestion.data.text.substring(0,10)}`;
                     if (!usedQuestions.includes(key)) {
@@ -843,7 +949,7 @@
                 scoreDiv.appendChild(btn);
             });
 
-            // Штрафные кнопки (Пункт 15)
+            // Штрафные кнопки
             const penaltyDiv = document.getElementById('penaltyButtons');
             penaltyDiv.innerHTML = '';
             [names.name1, names.name2, names.name3].forEach((teamName, idx) => {
@@ -872,6 +978,87 @@
             document.getElementById('questionPanel').classList.add('hidden');
             currentQuestion = null;
             selectedOptionIndex = -1;
+        }
+
+        // 🎁 КОТ В МЕШКЕ
+        function openRandomQuestion() {
+            const allThemes = ['theme1', 'theme2', 'theme3'];
+            const randomTheme = allThemes[Math.floor(Math.random() * allThemes.length)];
+            const themeQuestions = quizData[randomTheme].questions;
+            const availableQuestions = themeQuestions.filter(q => {
+                const key = `${randomTheme}-${q.points}-${q.text.substring(0,10)}`;
+                return !usedQuestions.includes(key);
+            });
+            
+            if (availableQuestions.length === 0) {
+                alert('😿 Все вопросы уже использованы!');
+                return;
+            }
+            
+            const randomQ = availableQuestions[Math.floor(Math.random() * availableQuestions.length)];
+            
+            // Временно переключаем тему для отображения
+            const oldTheme = currentTheme;
+            currentTheme = randomTheme;
+            openQuestion(randomTheme, randomQ);
+            currentTheme = oldTheme; // Возвращаем тему обратно
+        }
+
+        // 🎲 СУДЬБА-ЗЛОДЕЙКА
+        function triggerFate() {
+            const scores = { team1: team1Score, team2: team2Score, team3: team3Score };
+            const event = fateEvents[Math.floor(Math.random() * fateEvents.length)];
+            
+            // Применяем эффект
+            event.effect(scores);
+            
+            // Обновляем баллы
+            team1Score = Math.max(0, scores.team1);
+            team2Score = Math.max(0, scores.team2);
+            team3Score = Math.max(0, scores.team3);
+            
+            // Показываем событие
+            const fateDiv = document.getElementById('fateEvent');
+            fateDiv.innerHTML = event.text;
+            fateDiv.classList.remove('hidden');
+            
+            // Конфетти в цвет
+            if (typeof confetti === 'function') {
+                confetti({
+                    particleCount: 100,
+                    spread: 80,
+                    origin: { y: 0.5 },
+                    colors: ['#ffd700', '#ffa500', '#ff69b4']
+                });
+            }
+            
+            // Скрываем через 4 секунды
+            setTimeout(() => {
+                fateDiv.classList.add('hidden');
+            }, 4000);
+        }
+
+        // ☠️ ВСЁ ПРОПАЛО
+        function resetGame() {
+            if (confirm('☠️ ТОЧНО? Все баллы и прогресс сгорят!')) {
+                team1Score = 0;
+                team2Score = 0;
+                team3Score = 0;
+                usedQuestions = [];
+                renderGrid();
+                closeQuestionPanel();
+                alert('💀 Игра сброшена. Начинаем с чистого листа!');
+                
+                // Мрачное конфетти
+                if (typeof confetti === 'function') {
+                    confetti({
+                        particleCount: 50,
+                        spread: 60,
+                        origin: { y: 0.5 },
+                        colors: ['#000000', '#4a4a4a', '#8b8b8b']
+                    });
+                }
+            }
         }
 
         function renderLeaderboard() {
@@ -903,6 +1090,7 @@
             currentTheme = 'theme1';
             document.getElementById('theme1Btn').classList.add('active');
             document.getElementById('theme2Btn').classList.remove('active');
+            document.getElementById('theme3Btn').classList.remove('active');
             renderGrid();
             closeQuestionPanel();
         });
@@ -910,6 +1098,15 @@
             currentTheme = 'theme2';
             document.getElementById('theme2Btn').classList.add('active');
             document.getElementById('theme1Btn').classList.remove('active');
+            document.getElementById('theme3Btn').classList.remove('active');
+            renderGrid();
+            closeQuestionPanel();
+        });
+        document.getElementById('theme3Btn').addEventListener('click', () => {
+            currentTheme = 'theme3';
+            document.getElementById('theme3Btn').classList.add('active');
+            document.getElementById('theme1Btn').classList.remove('active');
+            document.getElementById('theme2Btn').classList.remove('active');
             renderGrid();
             closeQuestionPanel();
         });
@@ -923,6 +1120,11 @@
         document.getElementById('closeLeaderboardBtn').addEventListener('click', () => {
             document.getElementById('leaderboardPanel').classList.add('hidden');
         });
+
+        // Новые кнопки
+        document.getElementById('catButton').addEventListener('click', openRandomQuestion);
+        document.getElementById('fateButton').addEventListener('click', triggerFate);
+        document.getElementById('resetButton').addEventListener('click', resetGame);
 
         renderGrid();
     })();
