@@ -389,6 +389,7 @@
             }
         }
     </style>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1"></script>
 </head>
 <body>
 <div class="app-container" id="appContainer">
@@ -638,85 +639,107 @@
             });
         }
 
-        function openQuestion(theme, questionObj) {
-            currentQuestion = { theme, data: questionObj };
-            selectedOptionIndex = -1;
+function openQuestion(theme, questionObj) {
+    currentQuestion = { theme, data: questionObj };
+    selectedOptionIndex = -1;
 
-            document.getElementById('questionText').innerText = questionObj.text;
-            
-            const imgContainer = document.getElementById('questionImage');
-            imgContainer.innerHTML = '';
+    document.getElementById('questionText').innerText = questionObj.text;
+    
+    const imgContainer = document.getElementById('questionImage');
+    imgContainer.innerHTML = '';
 
-            if (typeof questionObj.image === 'string' && !questionObj.image.startsWith('<')) {
-                // Если это просто путь к картинке
-                const img = document.createElement('img');
-                img.src = questionObj.image;
-                img.alt = 'картинка';
-                img.style.maxWidth = '100%';
-                img.style.maxHeight = '250px';
-                img.style.borderRadius = '15px';
-                img.style.objectFit = 'contain';
-                imgContainer.appendChild(img);
-            } else {
-                // Если это HTML-тег
-                imgContainer.innerHTML = questionObj.image;
+    if (typeof questionObj.image === 'string' && !questionObj.image.startsWith('<')) {
+        const img = document.createElement('img');
+        img.src = questionObj.image;
+        img.alt = 'картинка';
+        img.style.maxWidth = '100%';
+        img.style.maxHeight = '250px';
+        img.style.borderRadius = '15px';
+        img.style.objectFit = 'contain';
+        imgContainer.appendChild(img);
+    } else {
+        imgContainer.innerHTML = questionObj.image;
+    }
+
+    const optsDiv = document.getElementById('optionsContainer');
+    optsDiv.innerHTML = '';
+    const letters = ['А', 'Б', 'В', 'Г'];
+    questionObj.options.forEach((opt, idx) => {
+        const btn = document.createElement('div');
+        btn.className = 'option-btn';
+        btn.innerText = `${letters[idx]}. ${opt}`;
+        btn.setAttribute('data-opt-index', idx);
+        btn.addEventListener('click', () => {
+            document.querySelectorAll('.option-btn').forEach(b => b.classList.remove('selected'));
+            btn.classList.add('selected');
+            selectedOptionIndex = idx;
+        });
+        optsDiv.appendChild(btn);
+    });
+
+    const scoreDiv = document.getElementById('scoreButtons');
+    const names = getTeamNames();
+    scoreDiv.innerHTML = '';
+    [names.name1, names.name2, names.name3].forEach((teamName, idx) => {
+        const btn = document.createElement('button');
+        btn.className = 'give-score-btn';
+        btn.innerText = `+ ${currentQuestion.data.points} → ${teamName}`;
+        btn.addEventListener('click', () => {
+            if (selectedOptionIndex === -1) {
+                alert('Сначала выберите вариант ответа (А-Г)!');
+                return;
             }
-
-            const optsDiv = document.getElementById('optionsContainer');
-            optsDiv.innerHTML = '';
-            const letters = ['А', 'Б', 'В', 'Г'];
-            questionObj.options.forEach((opt, idx) => {
-                const btn = document.createElement('div');
-                btn.className = 'option-btn';
-                btn.innerText = `${letters[idx]}. ${opt}`;
-                btn.setAttribute('data-opt-index', idx);
-                btn.addEventListener('click', () => {
-                    document.querySelectorAll('.option-btn').forEach(b => b.classList.remove('selected'));
-                    btn.classList.add('selected');
-                    selectedOptionIndex = idx;
+            const isCorrect = (selectedOptionIndex === currentQuestion.data.correct);
+            if (!isCorrect) {
+                alert('❌ Неправильный ответ. Баллы не начислены.');
+            } else {
+                // 🎊 КОНФЕТТИ ТУТ!
+                confetti({
+                    particleCount: 150,
+                    spread: 100,
+                    origin: { y: 0.6 },
+                    startVelocity: 30,
+                    colors: ['#ff1493', '#9400d3', '#ff69b4', '#ffd700', '#98fb98']
                 });
-                optsDiv.appendChild(btn);
-            });
+                
+                // Ещё немного конфетти через секунду
+                setTimeout(() => {
+                    confetti({
+                        particleCount: 50,
+                        spread: 70,
+                        origin: { y: 0.5, x: 0.2 },
+                        colors: ['#ff1493', '#ff69b4']
+                    });
+                    confetti({
+                        particleCount: 50,
+                        spread: 70,
+                        origin: { y: 0.5, x: 0.8 },
+                        colors: ['#9400d3', '#ffd700']
+                    });
+                }, 200);
 
-            const scoreDiv = document.getElementById('scoreButtons');
-            const names = getTeamNames();
-            scoreDiv.innerHTML = '';
-            [names.name1, names.name2, names.name3].forEach((teamName, idx) => {
-                const btn = document.createElement('button');
-                btn.className = 'give-score-btn';
-                btn.innerText = `+ ${currentQuestion.data.points} → ${teamName}`;
-                btn.addEventListener('click', () => {
-                    if (selectedOptionIndex === -1) {
-                        alert('Сначала выберите вариант ответа (А-Г)!');
-                        return;
-                    }
-                    const isCorrect = (selectedOptionIndex === currentQuestion.data.correct);
-                    if (!isCorrect) {
-                        alert('❌ Неправильный ответ. Баллы не начислены.');
-                    } else {
-                        // Начисляем баллы в переменные (не в localStorage)
-                        if (idx === 0) team1Score += currentQuestion.data.points;
-                        else if (idx === 1) team2Score += currentQuestion.data.points;
-                        else team3Score += currentQuestion.data.points;
-                        alert(`✅ Верно! ${currentQuestion.data.points} баллов команде ${teamName}`);
-                    }
-                    const key = `${currentTheme}-${currentQuestion.data.points}-${currentQuestion.data.text.substring(0,10)}`;
-                    if (!usedQuestions.includes(key)) {
-                        usedQuestions.push(key);
-                    }
-                    closeQuestionPanel();
-                    renderGrid();
-                });
-                scoreDiv.appendChild(btn);
-            });
+                // Начисляем баллы
+                if (idx === 0) team1Score += currentQuestion.data.points;
+                else if (idx === 1) team2Score += currentQuestion.data.points;
+                else team3Score += currentQuestion.data.points;
+                alert(`✅ Верно! ${currentQuestion.data.points} баллов команде ${teamName}`);
+            }
+            const key = `${currentTheme}-${currentQuestion.data.points}-${currentQuestion.data.text.substring(0,10)}`;
+            if (!usedQuestions.includes(key)) {
+                usedQuestions.push(key);
+            }
+            closeQuestionPanel();
+            renderGrid();
+        });
+        scoreDiv.appendChild(btn);
+    });
 
-            document.getElementById('questionPanel').classList.remove('hidden');
-            
-            // Прокрутка к вопросу на мобильных
-            setTimeout(() => {
-                document.getElementById('questionPanel').scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }, 100);
-        }
+    document.getElementById('questionPanel').classList.remove('hidden');
+    
+    setTimeout(() => {
+        document.getElementById('questionPanel').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 100);
+}
 
         function closeQuestionPanel() {
             document.getElementById('questionPanel').classList.add('hidden');
@@ -779,3 +802,4 @@
 </script>
 </body>
 </html>
+
