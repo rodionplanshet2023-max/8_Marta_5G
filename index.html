@@ -49,7 +49,7 @@
         .splash-screen p {
             font-size: 1.8rem;
             color: #9400d3;
-            margin-bottom: 40px;
+            margin-bottom: 20px;
         }
         .splash-screen button {
             background: #ff1493;
@@ -63,10 +63,25 @@
             transition: 0.07s;
             font-weight: bold;
             letter-spacing: 2px;
+            margin-bottom: 20px;
         }
         .splash-screen button:active {
             transform: translateY(10px);
             box-shadow: 0 2px 0 #8b008b, 0 5px 20px #ff69b4;
+        }
+        .splash-screen .terms {
+            font-size: 1rem;
+            color: #c71585;
+            max-width: 400px;
+            margin-top: 10px;
+        }
+        .splash-screen .terms a {
+            color: #ff1493;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .splash-screen .terms a:hover {
+            text-decoration: underline;
         }
         .header {
             display: flex;
@@ -214,7 +229,6 @@
             color: #4b0082;
         }
         .q-image {
-            font-size: 4rem;
             background: #fadadd;
             border-radius: 40px;
             padding: 15px;
@@ -222,6 +236,15 @@
             margin-bottom: 25px;
             border: 2px dashed #ff69b4;
             color: #c71585;
+            min-height: 200px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .q-image img {
+            max-width: 100%;
+            max-height: 300px;
+            border-radius: 20px;
         }
         .options {
             display: grid;
@@ -308,6 +331,7 @@
             border-radius: 50px;
             font-weight: bold;
             margin-top: 10px;
+            cursor: pointer;
         }
         .hidden { display: none; }
         @keyframes fadeIn { from { opacity: 0; transform: scale(0.9); } to { opacity: 1; transform: scale(1); } }
@@ -321,6 +345,9 @@
         <h1>💄 8 марта + Clash 👑</h1>
         <p>Бьюти-квиз + эпичные вопросы</p>
         <button id="startBtn">Войти в игру →</button>
+        <div class="terms">
+            Нажимая на кнопку «Войти в игру», вы автоматически соглашаетесь с <a href="https://github.com/rodionplanshet2023-max/8_Marta_5G/blob/main/README.md" target="_blank">условиями использования</a>
+        </div>
     </div>
 
     <!-- ОСНОВНАЯ ИГРА -->
@@ -377,7 +404,7 @@
                     { 
                         points: 10, 
                         text: 'Что это за инструмент? (На фото металлический керлер)', 
-                        image: '<img src="https://avatars.mds.yandex.net/i?id=8f83f716c672378065b4be05faff599eecf72e71-4395348-images-thumbs&n=13" alt="kerler" width="300" height="300">',
+                        image: '<img src="https://avatars.mds.yandex.net/i?id=8f83f716c672378065b4be05faff599eecf72e71-4395348-images-thumbs&n=13" alt="kerler" style="max-width: 300px; max-height: 300px; border-radius: 20px;">',
                         options: [
                             'Зажим для накладных ресниц',
                             'Щипцы для механической завивки ресниц',
@@ -389,7 +416,7 @@
                     { 
                         points: 20, 
                         text: 'Для чего предназначена кисть-веер?', 
-                        image: '<img src="https://avatars.mds.yandex.net/get-mpic/7543961/img_id8916896061490917613.jpeg/300x300" alt="kons" width="300" height="300">',
+                        image: '<img src="https://avatars.mds.yandex.net/get-mpic/7543961/img_id8916896061490917613.jpeg/300x300" alt="kons" style="max-width: 300px; max-height: 300px; border-radius: 20px;">',
                         options: [
                             'Для нанесения масок на Т-зону',
                             'Для растушевки карандаша по контуру губ',
@@ -401,7 +428,7 @@
                     { 
                         points: 30, 
                         text: 'Что такое «Кайал» (Kajal)?', 
-                        image: '<img src="https://i.letu.ru/common/img/pim/2025/10/EX_93ec31ca-d4dc-4c30-87e2-0d4f2d4a34cd.jpg" alt="kon" width="300" height="300">',
+                        image: '<img src="https://i.letu.ru/common/img/pim/2025/10/EX_93ec31ca-d4dc-4c30-87e2-0d4f2d4a34cd.jpg" alt="kon" style="max-width: 300px; max-height: 300px; border-radius: 20px;">',
                         options: [
                             'Стойкая подводка для тонких стрелок',
                             'Мягкий жирный карандаш для слизистой глаза',
@@ -413,7 +440,7 @@
                     { 
                         points: 40, 
                         text: 'Как работает «Тинт» для губ?', 
-                        image: '<img src="https://www.letu.ru/common/img/pim/2024/12/EX_7c534c4a-1e98-4116-947c-2fba5e6aaf27.jpg" alt="kns" width="300" height="300">',
+                        image: '<img src="https://www.letu.ru/common/img/pim/2024/12/EX_7c534c4a-1e98-4116-947c-2fba5e6aaf27.jpg" alt="kns" style="max-width: 300px; max-height: 300px; border-radius: 20px;">',
                         options: [
                             'Создает плотное виниловое покрытие',
                             'Впитывается в кожу, оставляя стойкий пигмент',
@@ -425,7 +452,7 @@
                     { 
                         points: 50, 
                         text: 'Зачем нужен «Консилер»?', 
-                        image: '<img src="https://avatars.mds.yandex.net/get-sprav-products/10022375/f6ca7e92039fb05a27f0b56dbb21985e/M_height" alt="kons" width="300" height="300">',
+                        image: '<img src="https://avatars.mds.yandex.net/get-sprav-products/10022375/f6ca7e92039fb05a27f0b56dbb21985e/M_height" alt="kons" style="max-width: 300px; max-height: 300px; border-radius: 20px;">',
                         options: [
                             'Для увлажнения кожи перед макияжем',
                             'Для фиксации макияжа',
@@ -437,7 +464,7 @@
                     { 
                         points: 50, 
                         text: 'Для чего предназначен «Силиконовый спонж» (Силипафф)?', 
-                        image: '<img src="https://avatars.mds.yandex.net/i?id=523f6b9ea9b2f2b390df54e8dc0cfc5d_sr-7045478-images-thumbs&n=13" alt="spong" width="300" height="300">',
+                        image: '<img src="https://avatars.mds.yandex.net/i?id=523f6b9ea9b2f2b390df54e8dc0cfc5d_sr-7045478-images-thumbs&n=13" alt="spong" style="max-width: 300px; max-height: 300px; border-radius: 20px;">',
                         options: [
                             'Для втирания масел в кожу головы',
                             'Для нанесения тональных средств без впитывания',
@@ -454,14 +481,14 @@
                     { 
                         points: 10, 
                         text: 'Сколько эликсира стоит Хог Райдер (Hog Rider)?',
-                        image: '<img src="https://avatars.mds.yandex.net/get-shedevrum/12445758/img_e1f94757258511efb97ba615c8878788/orig" alt="piska_gay" width="300" height="300">',
+                        image: '<img src="https://avatars.mds.yandex.net/get-shedevrum/12445758/img_e1f94757258511efb97ba615c8878788/orig" alt="piska_gay" style="max-width: 300px; max-height: 300px; border-radius: 20px;">',
                         options: ['3', '4', '5', '6'], 
                         correct: 1 
                     },
                     { 
                         points: 20, 
                         text: 'Какая карта является легендарной?', 
-                        image: '<img src="https://yt3.googleusercontent.com/ytc/AIdro_mLVZL09Q8UEg-6THfKt_9Vl_i-VNxPYaOeBgRbKVYvHyc=s900-c-k-c0x00ffffff-no-rj" alt="piska" width="300" height="300">',
+                        image: '<img src="https://yt3.googleusercontent.com/ytc/AIdro_mLVZL09Q8UEg-6THfKt_9Vl_i-VNxPYaOeBgRbKVYvHyc=s900-c-k-c0x00ffffff-no-rj" alt="piska" style="max-width: 300px; max-height: 300px; border-radius: 20px;">',
                         options: [
                             'Варвар',
                             'Мини П.Е.К.К.А',
@@ -473,14 +500,14 @@
                     { 
                         points: 30, 
                         text: 'Какой ареной открывается Ведьма (Witch)?', 
-                        image: '<img src="https://yt3.googleusercontent.com/ytc/AIdro_nbGdxbYyXSpl3t3nxk8A_7UH9vBU-rFkdzHdBAYPCZScE=s900-c-k-c0x00ffffff-no-rj" alt="piska_bobra" width="300" height="300">',
+                        image: '<img src="https://yt3.googleusercontent.com/ytc/AIdro_nbGdxbYyXSpl3t3nxk8A_7UH9vBU-rFkdzHdBAYPCZScE=s900-c-k-c0x00ffffff-no-rj" alt="piska_bobra" style="max-width: 300px; max-height: 300px; border-radius: 20px;">',
                         options: ['Арена 2', 'Арена 5', 'Арена 7', 'Арена 10'], 
                         correct: 1 
                     },
                     { 
                         points: 40, 
                         text: 'Какая карта НЕ является чемпионом?', 
-                        image: '<img src="https://avatars.mds.yandex.net/get-shedevrum/12445758/img_e1f94757258511efb97ba615c8878788/orig" alt="piska" width="300" height="300">',
+                        image: '<img src="https://avatars.mds.yandex.net/get-shedevrum/12445758/img_e1f94757258511efb97ba615c8878788/orig" alt="piska" style="max-width: 300px; max-height: 300px; border-radius: 20px;">',
                         options: [
                             'Золотой рыцарь',
                             'Королева лучников',
@@ -493,18 +520,18 @@
                         points: 50, 
                         text: 'Что за игра на картинке?', 
                         image: 'images/clashroyale.jpg',
-                         options: [
+                        options: [
                             'Clash of Clans',
                             'Brawl Stars',
                             'Clash Royale',
                             'Hay Day'
                         ], 
-                        correct: 2  // 2 = В (Clash Royale), потому что А-0, Б-1, В-2, Г-3
+                        correct: 2
                     },
                     { 
                         points: 50, 
                         text: 'Что за персонаж на картинке?', 
-                        image: '<img src="https://cdn.royaleapi.com/static/img/cards/mega-knight.png?t=330b878fc" alt="mega">',  // <--- ВОТ СЮДА ВСТАВЛЯТЬ КАРТИНКУ
+                        image: '<img src="https://cdn.royaleapi.com/static/img/cards/mega-knight.png?t=330b878fc" alt="mega" style="max-width: 300px; max-height: 300px; border-radius: 20px;">',
                         options: [
                             'Принц',
                             'Меганайт',
@@ -517,26 +544,16 @@
             }
         };
 
-        // Состояние игры
+        // Состояние игры (очки НЕ сохраняются)
         let currentTheme = 'theme1';
         let usedQuestions = [];
         let currentQuestion = null;
         let selectedOptionIndex = -1;
-
-        // Счет команд
-        function getScores() {
-            return {
-                team1: parseInt(localStorage.getItem('team1Score') || '0'),
-                team2: parseInt(localStorage.getItem('team2Score') || '0'),
-                team3: parseInt(localStorage.getItem('team3Score') || '0')
-            };
-        }
-        function setScores(t1, t2, t3) {
-            localStorage.setItem('team1Score', t1.toString());
-            localStorage.setItem('team2Score', t2.toString());
-            localStorage.setItem('team3Score', t3.toString());
-        }
-        if (!localStorage.getItem('team1Score')) setScores(0,0,0);
+        
+        // Очки команд в памяти (без localStorage)
+        let team1Score = 0;
+        let team2Score = 0;
+        let team3Score = 0;
 
         function getTeamNames() {
             return {
@@ -553,7 +570,7 @@
             const themeData = quizData[currentTheme].questions;
             grid.innerHTML = '';
             themeData.forEach(q => {
-                const key = `${currentTheme}-${q.points}-${q.text.substring(0,10)}`; // уникальный ключ
+                const key = `${currentTheme}-${q.points}-${q.text.substring(0,10)}`;
                 const isUsed = usedQuestions.includes(key);
                 const card = document.createElement('div');
                 card.className = `question-card ${isUsed ? 'used' : ''}`;
@@ -572,26 +589,25 @@
         function openQuestion(theme, questionObj) {
             currentQuestion = { theme, data: questionObj };
             selectedOptionIndex = -1;
-            console.log('Открываем вопрос:', questionObj); // Добавьте эту строку
-            console.log('Текст вопроса:', questionObj.text); // И эту
+
             document.getElementById('questionText').innerText = questionObj.text;
             
+            const imgContainer = document.getElementById('questionImage');
+            imgContainer.innerHTML = '';
 
-        const imgContainer = document.getElementById('questionImage');
-        imgContainer.innerHTML = ''; // Очищаем
-
-        if (questionObj.image && !questionObj.image.startsWith('<')) {
-            // Если это просто путь к картинке
-            const img = document.createElement('img');
-            img.src = questionObj.image;
-            img.alt = 'Clash Royale';
-            img.style.maxWidth = '300px';
-            img.style.borderRadius = '20px';
-            imgContainer.appendChild(img);
-        } else {
-             // Если это уже HTML-тег
-            imgContainer.innerHTML = questionObj.image;
-        }
+            if (typeof questionObj.image === 'string' && !questionObj.image.startsWith('<')) {
+                // Если это просто путь к картинке
+                const img = document.createElement('img');
+                img.src = questionObj.image;
+                img.alt = 'картинка';
+                img.style.maxWidth = '300px';
+                img.style.maxHeight = '300px';
+                img.style.borderRadius = '20px';
+                imgContainer.appendChild(img);
+            } else {
+                // Если это HTML-тег
+                imgContainer.innerHTML = questionObj.image;
+            }
 
             const optsDiv = document.getElementById('optionsContainer');
             optsDiv.innerHTML = '';
@@ -625,11 +641,10 @@
                     if (!isCorrect) {
                         alert('❌ Неправильный ответ. Баллы не начислены.');
                     } else {
-                        const scores = getScores();
-                        if (idx === 0) scores.team1 += currentQuestion.data.points;
-                        else if (idx === 1) scores.team2 += currentQuestion.data.points;
-                        else scores.team3 += currentQuestion.data.points;
-                        setScores(scores.team1, scores.team2, scores.team3);
+                        // Начисляем баллы в переменные (не в localStorage)
+                        if (idx === 0) team1Score += currentQuestion.data.points;
+                        else if (idx === 1) team2Score += currentQuestion.data.points;
+                        else team3Score += currentQuestion.data.points;
                         alert(`✅ Верно! ${currentQuestion.data.points} баллов команде ${teamName}`);
                     }
                     const key = `${currentTheme}-${currentQuestion.data.points}-${currentQuestion.data.text.substring(0,10)}`;
@@ -643,7 +658,6 @@
             });
 
             document.getElementById('questionPanel').classList.remove('hidden');
-        
         }
 
         function closeQuestionPanel() {
@@ -653,14 +667,13 @@
         }
 
         function renderLeaderboard() {
-            const scores = getScores();
             const names = getTeamNames();
             const contentDiv = document.getElementById('leaderboardContent');
             contentDiv.innerHTML = '';
             const rows = [
-                { name: names.name1, score: scores.team1 },
-                { name: names.name2, score: scores.team2 },
-                { name: names.name3, score: scores.team3 }
+                { name: names.name1, score: team1Score },
+                { name: names.name2, score: team2Score },
+                { name: names.name3, score: team3Score }
             ];
             rows.sort((a,b) => b.score - a.score);
             rows.forEach(r => {
@@ -707,9 +720,4 @@
     })();
 </script>
 </body>
-
 </html>
-
-
-
-
